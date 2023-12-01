@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/BouncingBallScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/MainScene.unity
+    guid: 1cb44836617adc44e81ae8a3b11fdb6a
+  - enabled: 0
+    path: Assets/Scenes/HandGestureScene.unity
+    guid: 7769054389bf3a04e8d344780b621610
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 24a10ea46eea8e24cba2d98e8b38cfaf
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 399a00d549cba8a40b709148a1c03c27,
+      type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: e5eab6df9ec82984ab5b37fd53edc347,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 05447fc4a3cd8f846bca39db387c6de6,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 8c503eacbbda3f944950523e2bc70a16,
+      type: 2}

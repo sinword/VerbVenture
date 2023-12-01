@@ -1,0 +1,4 @@
+repository "Colloland@sinword@cloud"
+  path "/"
+    br "/main"
+    co "/main"

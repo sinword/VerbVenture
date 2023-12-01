@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/BouncingBallScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 1cb44836617adc44e81ae8a3b11fdb6a
   - enabled: 0
     path: Assets/Scenes/HandGestureScene.unity
     guid: 7769054389bf3a04e8d344780b621610
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MenuScene.unity
     guid: 24a10ea46eea8e24cba2d98e8b38cfaf
   m_configObjects:

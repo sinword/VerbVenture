@@ -10,6 +10,6 @@ public class ObjectCreater : MonoBehaviour
         var newObject =  Instantiate(gameObject);
         newObject.transform.parent = gameObject.transform.parent;
         newObject.transform.position = gameObject.transform.position + offset;
-        gameObject.SetActive(false); 
+        gameObject.SetActive(false);
     }
 }

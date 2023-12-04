@@ -27,24 +27,12 @@ public class RayCaster : MonoBehaviour
     #endregion
     bool isHitting = false;
     float hitTime = 0f;
-     Outline _outline;
+    Outline _outline;
 
     void Start()
     {
-        // lineRenderer = GetComponent<LineRenderer>();
-
-        // int layerIndex = LayerMask.NameToLayer("Alphabet Generator");
-        // if (-1 == layerIndex)
-        // {
-        //     Debug.LogError("LayerMask \"Alphabet Generator\" is missing.");
-        //     gameObject.SetActive(false);
-        // }
-        // else
-        // {
-        //     interactionLayerMask = 1 << layerIndex;
-        // }
-
-        gameObject.SetActive(false);
+        lineRenderer = GetComponent<LineRenderer>();
+        gameObject.SetActive(true);
     }
 
     void OnDisable()
@@ -54,63 +42,28 @@ public class RayCaster : MonoBehaviour
 
     void Update()
     {
-        // if (useVisibleRay)
-        // {
-        //     lineRenderer.SetPosition(0, transform.position);
-        // }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, maxDistance, interactionLayerMask))
         {            
             Debug.Log(hitInfo.transform.name);
-            if(hitInfo.transform.GetComponent<Outline>())
+            if(hitInfo.transform.GetComponentInChildren<Outline>())
             {
-                _outline = hitInfo.transform.GetComponent<Outline>();
+                _outline = hitInfo.transform.GetComponentInChildren<Outline>();
                 _outline.enabled = true;
             }
 
-
-
-            // if (!isHitting)
-            // {
-            //     currentGenerator = hitInfo.transform.GetComponentInChildren<AlphabetGenerator>();
-            //     if (currentGenerator != null)
-            //     {
-            //         currentGenerator.OpenHighlight();
-            //         // No need to count if another interaction is happening.
-            //         if (!AlphabetBubble.ExistsAny()) hitTime = Time.time;
-            //     }
-            //     else
-            //     {
-            //         Debug.LogError("The object hit by raycast is not a Alphabet Generator, Object name: " + hitInfo.transform.name);
-            //     }
-            //     isHitting = true;
-            // }
-            // else if (Time.time - hitTime >= interactionDelay)
-            // {
-            //     currentGenerator.StartInteraction();
-            //     ResetInteraction();
-            // }
-
-            // if (useVisibleRay)
-            // {
-            //     lineRenderer.enabled = true;
-            //     lineRenderer.startColor = hitStart;
-            //     lineRenderer.SetPosition(1, hitInfo.point);
-            // }
+            lineRenderer.enabled = true;
+            lineRenderer.startColor = hitStart;
+            lineRenderer.SetPosition(1, hitInfo.point);
         }
         else
         {
-            // if (isHitting)
-            // {
-                ResetInteraction();
-            // }
-            // if (useVisibleRay)
-            // {
-            //     lineRenderer.enabled = true;
-            //     lineRenderer.startColor = nohitStart;
-            //     Vector3 rayEndPoint = transform.position + transform.TransformDirection(Vector3.forward) * maxDistance;
-            //     lineRenderer.SetPosition(1, rayEndPoint);
-            // }
+            ResetInteraction();
+            lineRenderer.enabled = true;
+            lineRenderer.startColor = nohitStart;
+            // Vector3 rayEndPoint = transform.position + transform.TransformDirection(Vector3.forward) * maxDistance;
+            lineRenderer.SetPosition(1, transform.TransformDirection(Vector3.forward) * maxDistance);
         }
+        
     }
 
     void ResetInteraction()

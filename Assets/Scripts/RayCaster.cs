@@ -61,7 +61,7 @@ public class RayCaster : MonoBehaviour
             lineRenderer.startColor = hitStart;
 
             lineRenderer.SetPosition(1, hitInfo.point);
-            //lineRenderer.SetPosition(1, transform.forward * (Vector3.Distance(hitInfo.point, transform.position)));
+            //lineRenderer.SetPosition(1, transform.InverseTransformPoint(hitInfo.point));
         }
         else
         {

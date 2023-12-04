@@ -1,6 +1,7 @@
  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 /// <summary>
 /// Cast ray from index finger to interact with Alphabat Generators
@@ -25,7 +26,7 @@ public class RayCaster : MonoBehaviour
     Color end = new Color(0.2311321f, 0.6582434f, 1f);
     Color nohitStart = new Color(1f, 0.4323243f, 0.3254902f);
     #endregion
-    bool isHitting = false;
+    bool _isHitting = false;
     float hitTime = 0f;
     Outline _outline;
 
@@ -42,8 +43,13 @@ public class RayCaster : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, maxDistance, interactionLayerMask))
-        {            
+        lineRenderer.SetPosition(0, transform.position);
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxDistance, interactionLayerMask))
+        {      
+            if(!_isHitting)
+            {
+                _isHitting = true;
+            }
             Debug.Log(hitInfo.transform.name);
             if(hitInfo.transform.GetComponentInChildren<Outline>())
             {
@@ -53,17 +59,24 @@ public class RayCaster : MonoBehaviour
 
             lineRenderer.enabled = true;
             lineRenderer.startColor = hitStart;
+
             lineRenderer.SetPosition(1, hitInfo.point);
+            //lineRenderer.SetPosition(1, transform.forward * (Vector3.Distance(hitInfo.point, transform.position)));
         }
         else
         {
-            ResetInteraction();
+            if(_isHitting)
+            {
+                _isHitting = false;
+
+                ResetInteraction();
+            }
             lineRenderer.enabled = true;
             lineRenderer.startColor = nohitStart;
-            // Vector3 rayEndPoint = transform.position + transform.TransformDirection(Vector3.forward) * maxDistance;
-            lineRenderer.SetPosition(1, transform.TransformDirection(Vector3.forward) * maxDistance);
+            Vector3 rayEndPoint = transform.position + transform.TransformDirection(Vector3.forward) * maxDistance;
+            lineRenderer.SetPosition(1, rayEndPoint);
+            //lineRenderer.SetPosition(1, Vector3.forward * maxDistance);
         }
-        
     }
 
     void ResetInteraction()

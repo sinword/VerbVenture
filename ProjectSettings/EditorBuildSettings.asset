@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BouncingBallScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/MainSceneBackUp.unity
     guid: 1cb44836617adc44e81ae8a3b11fdb6a
   - enabled: 0
     path: Assets/Scenes/HandGestureScene.unity

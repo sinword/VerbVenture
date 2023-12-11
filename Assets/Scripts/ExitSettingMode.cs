@@ -16,7 +16,6 @@ public class ExitSettingMode : MonoBehaviour
     [SerializeField] private Material _greenMat;
     
     private List<GameObject> _cubes = new List<GameObject>();
-    // Start is called before the first frame update
     void Start()
     {
         _cubes.Add(GameObject.Find("Umbrella Object"));
@@ -55,6 +54,5 @@ public class ExitSettingMode : MonoBehaviour
     {
         _greenMat.SetColor("_BaseColor", new Color(0.4069019f, 1.0f, 0.2399999f, 1.0f));
         _blueMat.SetColor("_BaseColor", new Color(0.2392156f, 0.8572884f, 1.0f, 1.0f));
-        
     }
 }

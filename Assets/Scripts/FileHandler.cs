@@ -10,7 +10,7 @@ public static class FileHandler {
         Debug.Log("SaveToJSON save to: " + GetPath(fileName));
         string content = JsonHelper.ToJson<T>(toSave.ToArray());
         WriteFile(GetPath(fileName), content);
-        UnityEditor.AssetDatabase.Refresh();
+        // UnityEditor.AssetDatabase.Refresh();
     }
 
     public static List<T> ReadFromJSON<T> (string fileName) {

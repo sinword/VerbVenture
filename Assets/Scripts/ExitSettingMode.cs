@@ -42,7 +42,7 @@ public class ExitSettingMode : MonoBehaviour
 
             Debug.Log("CubeInfoList Count: " + cubeInfoList.Count);
             FileHandler.SaveToJSON<CubeInfo>(cubeInfoList, "cubeInfo.json");
-            SceneManager.LoadScene("MainScene");
+            // SceneManager.LoadScene("MainScene");
         });
         // this._outline_green.enabled = true;
         // this._outline_blue.enabled = true;

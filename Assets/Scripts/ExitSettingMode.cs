@@ -8,13 +8,7 @@ using System;
 
 public class ExitSettingMode : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
     [SerializeField] private Button _exitBtn;
-    [SerializeField] private GameObject _text1;
-    [SerializeField] private Material _blueMat;
-    [SerializeField] private GameObject _text2;
-    [SerializeField] private Material _greenMat;
-    
     private List<GameObject> _cubes = new List<GameObject>();
     void Start()
     {
@@ -22,11 +16,9 @@ public class ExitSettingMode : MonoBehaviour
         _cubes.Add(GameObject.Find("Phone Object"));
 
         this._exitBtn.onClick.AddListener(delegate {
-            this._greenMat.SetColor("_BaseColor", new Color(0.4069019f, 1.0f, 0.2399999f, 0.0f));
-            this._blueMat.SetColor("_BaseColor", new Color(0.2392156f, 0.8572884f, 1.0f, 0.0f));
-            this._text1.SetActive(false);
-            this._text2.SetActive(false);
-            this._canvas.enabled = false;
+            // this._text1.SetActive(false);
+            // this._text2.SetActive(false);
+            // this._canvas.enabled = false;
             
             List<CubeInfo> cubeInfoList = new List<CubeInfo>();
             
@@ -41,18 +33,12 @@ public class ExitSettingMode : MonoBehaviour
             }
 
             Debug.Log("CubeInfoList Count: " + cubeInfoList.Count);
-            FileHandler.SaveToJSON<CubeInfo>(cubeInfoList, "cubeInfo.json");
-            // SceneManager.LoadScene("MainScene");
+            
+            string path = Path.Combine(Application.persistentDataPath, "cubeInfo.json");
+            FileHandler.SaveToJSON<CubeInfo>(cubeInfoList, path);
+            
         });
-        // this._outline_green.enabled = true;
-        // this._outline_blue.enabled = true;
-        //   _canvas.enabled = false;
     }
-
     
-    void OnApplicationQuit()
-    {
-        _greenMat.SetColor("_BaseColor", new Color(0.4069019f, 1.0f, 0.2399999f, 1.0f));
-        _blueMat.SetColor("_BaseColor", new Color(0.2392156f, 0.8572884f, 1.0f, 1.0f));
-    }
+    
 }

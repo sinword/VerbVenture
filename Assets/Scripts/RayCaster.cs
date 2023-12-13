@@ -1,7 +1,9 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
+using TMPro;
 
 /// <summary>
 /// Cast ray from index finger to interact with Alphabat Generators
@@ -62,6 +64,16 @@ public class RayCaster : MonoBehaviour
 
             lineRenderer.SetPosition(1, hitInfo.point);
             //lineRenderer.SetPosition(1, transform.InverseTransformPoint(hitInfo.point));
+
+            TextMeshProUGUI textComponent = GameObject.Find("WordsSpaceCanvas/HitInfo").GetComponent<TextMeshProUGUI>();
+            if (textComponent != null)
+            {
+                textComponent.text = hitInfo.transform.name;
+            }
+            else
+            {
+                Debug.LogError("TextMeshProUGUI component not found!");
+            }
         }
         else
         {

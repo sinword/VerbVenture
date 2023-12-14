@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/BouncingBallScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+  - enabled: 0
+    path: Assets/Scenes/SettingScene.unity
     guid: 1cb44836617adc44e81ae8a3b11fdb6a
   - enabled: 0
     path: Assets/Scenes/HandGestureScene.unity
@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MenuScene.unity
     guid: 24a10ea46eea8e24cba2d98e8b38cfaf
+  - enabled: 1
+    path: Assets/Scenes/SettingScene.unity
+    guid: 1cb44836617adc44e81ae8a3b11fdb6a
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: bdf7710348811d44c89e50446ded9637
+  - enabled: 0
+    path: Assets/Scenes/TestScene1.unity
+    guid: d625cd5a347066e45b9f5eb1458fa065
+  - enabled: 0
+    path: Assets/Scenes/TestScene2.unity
+    guid: 8dec3370090ae7444ac4e8dcaf1423c7
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 399a00d549cba8a40b709148a1c03c27,
       type: 2}

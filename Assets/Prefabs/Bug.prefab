@@ -164,7 +164,12 @@ PrefabInstance:
     - target: {fileID: 4614256481151612422, guid: 496c29fb5c31dee4ca6edae831da1c71,
         type: 3}
       propertyPath: m_Name
-      value: Word Object
+      value: Bug
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614256481151612422, guid: 496c29fb5c31dee4ca6edae831da1c71,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4614256481151612423, guid: 496c29fb5c31dee4ca6edae831da1c71,
         type: 3}

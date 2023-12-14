@@ -1,7 +1,9 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
+using TMPro;
 
 /// <summary>
 /// Cast ray from index finger to interact with Alphabat Generators
@@ -16,10 +18,10 @@ public class RayCaster : MonoBehaviour
     float maxDistance = 50f;
     [Tooltip("Whether use the line renderer to show the ray.")]
     [SerializeField]
-    bool useVisibleRay = true;
-    [Tooltip("The time in seconds that the ray must be hitting the AlphabetGenerator before interaction begins.")]
-    [SerializeField]
-    float interactionDelay = 1f;
+    // bool useVisibleRay = true;
+    // [Tooltip("The time in seconds that the ray must be hitting the AlphabetGenerator before interaction begins.")]
+    // [SerializeField]
+    // float interactionDelay = 1f;
     #region LineRenderer
     LineRenderer lineRenderer;
     Color hitStart = new Color(0.3254717f, 1f, 0.7896893f);
@@ -27,7 +29,7 @@ public class RayCaster : MonoBehaviour
     Color nohitStart = new Color(1f, 0.4323243f, 0.3254902f);
     #endregion
     bool _isHitting = false;
-    float hitTime = 0f;
+    // float hitTime = 0f;
     Outline _outline;
 
     void Start()
@@ -62,6 +64,16 @@ public class RayCaster : MonoBehaviour
 
             lineRenderer.SetPosition(1, hitInfo.point);
             //lineRenderer.SetPosition(1, transform.InverseTransformPoint(hitInfo.point));
+
+            TextMeshProUGUI textComponent = GameObject.Find("WordsSpaceCanvas/HitInfo").GetComponent<TextMeshProUGUI>();
+            if (textComponent != null)
+            {
+                textComponent.text = hitInfo.transform.name;
+            }
+            else
+            {
+                Debug.LogError("TextMeshProUGUI component not found!");
+            }
         }
         else
         {
